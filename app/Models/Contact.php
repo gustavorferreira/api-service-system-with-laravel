@@ -11,7 +11,7 @@ class Contact extends Model
 
     protected $table = 'contacts';
     protected $fillable = [
-        'id_people',
+        'people_id',
         'natioal_code',
         'ddd_code',
         'phone_number',
@@ -19,4 +19,9 @@ class Contact extends Model
         'observation',
         'status'
     ];
+
+    public function people()
+    {
+        return $this->hasOne(People::class);
+    }
 }

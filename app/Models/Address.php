@@ -11,7 +11,7 @@ class Address extends Model
 
     protected $table = 'addresses';
     protected $fillable = [
-        'id_people',
+        'people_id',
         'city',
         'district',
         'complement',
@@ -21,4 +21,9 @@ class Address extends Model
         'zip_code',
         'status'
     ];
+
+    public function people()
+    {
+        return $this->hasOne(People::class);
+    }
 }

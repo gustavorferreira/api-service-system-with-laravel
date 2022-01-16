@@ -11,9 +11,14 @@ class Physic extends Model
 
     protected $table = 'physics';
     protected $fillable = [
-        'id_people',
+        'people_id',
         'cpf',
         'date_birth',
         'genre'
     ];
+
+    public function people()
+    {
+        return $this->hasOne(People::class);
+    }
 }

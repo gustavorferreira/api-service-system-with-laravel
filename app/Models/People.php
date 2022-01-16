@@ -16,4 +16,19 @@ class People extends Model
         'last_name',
         'status'
     ];
+
+    public function physic()
+    {
+        return $this->hasOne(Physic::class);
+    }
+
+    public function address()
+    {
+        return $this->hasMany(Address::class);
+    }
+
+    public function contact()
+    {
+        return $this->hasMany(Contact::class);
+    }
 }
