@@ -22,6 +22,7 @@ class CreateAddressesTable extends Migration
             $table->string('uf')->nullable();
             $table->string('county')->nullable();
             $table->string('zip_code');
+            $table->integer('status')->default(1)->comment('0 = disabled and 1 = enabled');
             $table->timestamps();
 
             $table->foreign('id_people')->references('id')->on('peoples');

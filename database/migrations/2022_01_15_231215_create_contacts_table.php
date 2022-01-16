@@ -20,6 +20,7 @@ class CreateContactsTable extends Migration
             $table->string('phone_number');
             $table->string('email')->nullable();
             $table->string('observation')->nullable();
+            $table->integer('status')->default(1)->comment('0 = disabled and 1 = enabled');
             $table->timestamps();
 
             $table->foreign('id_people')->references('id')->on('peoples');

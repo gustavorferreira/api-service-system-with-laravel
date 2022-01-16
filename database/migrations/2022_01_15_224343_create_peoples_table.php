@@ -17,6 +17,7 @@ class CreatePeoplesTable extends Migration
             $table->id();
             $table->string('first_name');
             $table->string('last_name');
+            $table->integer('status')->default(1)->comment('0 = disabled and 1 = enabled');
             $table->timestamps();
         });
     }
