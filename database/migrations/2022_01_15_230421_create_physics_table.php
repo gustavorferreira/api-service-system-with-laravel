@@ -16,7 +16,7 @@ class CreatePhysicsTable extends Migration
         Schema::create('physics', function (Blueprint $table) {
             $table->integer('id_people');
             $table->string('cpf');
-            $table->string('date_birth')->nullable();
+            $table->date('date_birth')->nullable();
             $table->string('genre')->nullable();
             $table->timestamps();
 
