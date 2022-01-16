@@ -14,7 +14,7 @@ class CreateContactsTable extends Migration
     public function up()
     {
         Schema::create('contacts', function (Blueprint $table) {
-            $table->integer('id_people');
+            $table->integer('people_id');
             $table->string('natioal_code');
             $table->string('ddd_code');
             $table->string('phone_number');
@@ -23,7 +23,7 @@ class CreateContactsTable extends Migration
             $table->integer('status')->default(1)->comment('0 = disabled and 1 = enabled');
             $table->timestamps();
 
-            $table->foreign('id_people')->references('id')->on('peoples');
+            $table->foreign('people_id')->references('id')->on('peoples');
         });
     }
 

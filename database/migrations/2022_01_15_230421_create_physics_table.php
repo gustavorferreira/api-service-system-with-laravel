@@ -14,13 +14,13 @@ class CreatePhysicsTable extends Migration
     public function up()
     {
         Schema::create('physics', function (Blueprint $table) {
-            $table->integer('id_people');
+            $table->integer('people_id');
             $table->string('cpf');
             $table->date('date_birth')->nullable();
             $table->string('genre')->nullable();
             $table->timestamps();
 
-            $table->foreign('id_people')->references('id')->on('peoples');
+            $table->foreign('people_id')->references('id')->on('peoples');
         });
     }
 

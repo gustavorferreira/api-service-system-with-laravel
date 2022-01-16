@@ -14,7 +14,7 @@ class CreateAddressesTable extends Migration
     public function up()
     {
         Schema::create('addresses', function (Blueprint $table) {
-            $table->integer('id_people');
+            $table->integer('people_id');
             $table->string('city');
             $table->string('district');
             $table->string('complement')->nullable();
@@ -25,7 +25,7 @@ class CreateAddressesTable extends Migration
             $table->integer('status')->default(1)->comment('0 = disabled and 1 = enabled');
             $table->timestamps();
 
-            $table->foreign('id_people')->references('id')->on('peoples');
+            $table->foreign('people_id')->references('id')->on('peoples');
         });
     }
 
