@@ -10,6 +10,7 @@ class Physic extends Model
     use HasFactory;
 
     protected $table = 'physics';
+    protected $primaryKey = 'people_id';
     protected $fillable = [
         'people_id',
         'cpf',

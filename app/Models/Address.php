@@ -10,6 +10,7 @@ class Address extends Model
     use HasFactory;
 
     protected $table = 'addresses';
+    protected $primaryKey = 'people_id';
     protected $fillable = [
         'people_id',
         'city',
