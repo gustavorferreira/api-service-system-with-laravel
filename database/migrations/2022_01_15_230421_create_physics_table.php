@@ -15,9 +15,9 @@ class CreatePhysicsTable extends Migration
     {
         Schema::create('physics', function (Blueprint $table) {
             $table->integer('people_id');
-            $table->string('cpf');
+            $table->string('cpf', 11)->unique();
             $table->date('date_birth')->nullable();
-            $table->string('genre')->nullable();
+            $table->string('genre', 1)->nullable();
             $table->timestamps();
 
             $table->foreign('people_id')->references('id')->on('peoples');

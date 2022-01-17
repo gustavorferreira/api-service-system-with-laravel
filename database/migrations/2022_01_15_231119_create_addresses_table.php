@@ -19,9 +19,9 @@ class CreateAddressesTable extends Migration
             $table->string('district');
             $table->string('complement')->nullable();
             $table->string('public_place')->nullable();
-            $table->string('uf')->nullable();
+            $table->string('uf', 2)->nullable();
             $table->string('county')->nullable();
-            $table->string('zip_code');
+            $table->string('zip_code', 8);
             $table->integer('status')->default(1)->comment('0 = disabled and 1 = enabled');
             $table->timestamps();
 
