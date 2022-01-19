@@ -29,7 +29,7 @@ class PeopleRepository
     public function save($request)
     {
         $params = $this->params($request);
-        return People::query()
+        return $this->people->query()
             ->create($params);
     }
 

@@ -4,29 +4,37 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Services\PeopleService;
+use App\Services\PhysicService;
 use Illuminate\Http\Request;
 
 class ApiControler extends Controller
 {
-    protected $peopleService;
+    protected $people;
+    protected $physic;
 
-    public function __construct(PeopleService $peopleService)
+    public function __construct(
+        PeopleService $peopleService,
+        PhysicService $physicService
+    )
     {
-        $this->peopleService = $peopleService;
+        $this->people = $peopleService;
+        $this->physic = $physicService;
     }
 
     public function index()
     {
-        return response()->json($this->peopleService->getAll());
+        return response()->json($this->people->getAll());
     }
 
     public function show($id)
     {
-        return response()->json($this->peopleService->getById($id));
+        return response()->json($this->people->getById($id));
     }
 
     public function store(Request $request)
     {
-        return response()->json($this->peopleService->savePeopleData($request));
+        $people = $this->people->savePeopleData($request);
+        $physic = $this->physic->savePhysicData($request, $people->id);
+        return response()->json($people->id);
     }
 }
