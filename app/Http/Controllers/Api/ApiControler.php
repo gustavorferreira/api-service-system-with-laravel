@@ -45,6 +45,6 @@ class ApiControler extends Controller
 
     public function store(Request $request)
     {
-        return $this->register->registerData($request);
+        return $this->register->saveNewRegister($request);
     }
 }

@@ -25,7 +25,7 @@ class RegisterService
         $this->address = $addressService;
     }
 
-    public function registerData($request)
+    public function saveNewRegister($request)
     {
         $request->validate([
             'first_name' => 'required',
