@@ -17,8 +17,7 @@ class Contact extends Model
         'ddd_code',
         'phone_number',
         'email',
-        'observation',
-        'status'
+        'observation'
     ];
 
     public function people()

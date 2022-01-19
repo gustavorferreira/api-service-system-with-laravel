@@ -19,8 +19,7 @@ class Address extends Model
         'public_place',
         'uf',
         'county',
-        'zip_code',
-        'status'
+        'zip_code'
     ];
 
     public function people()
