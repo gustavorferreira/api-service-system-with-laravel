@@ -1,16 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Services;
 
-use App\Http\Controllers\Controller;
 use App\Models\Contact;
 use App\Models\Physic;
-use App\Services\AddressService;
-use App\Services\ContactService;
-use App\Services\PeopleService;
-use App\Services\PhysicService;
 
-class RegisterControler extends Controller
+class RegisterService
 {
     protected $people;
     protected $physic;
@@ -32,11 +27,28 @@ class RegisterControler extends Controller
 
     public function registerData($request)
     {
-        if ($this->verifyCpfExist($request)) {
+        $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'cpf' => 'required',
+            'date_birth' => 'required',
+            'genre' => 'required',
+            'natioal_code' => 'required',
+            'ddd_code' => 'required',
+            'phone_number' => 'required',
+            'email' => 'required',
+            'city' => 'required',
+            'district' => 'required',
+            'uf' => 'required',
+            'county' => 'required',
+            'zip_code' => 'required'
+        ]);
+
+        if ($this->verifyCpfExist($request) != null) {
             return response()->json(['message' => 'CPF already exists'], 409);
         }
 
-        if ($this->verifyEmailExist($request)) {
+        if ($this->verifyEmailExist($request) != '') {
             return response()->json(['message' => 'E-mail already exists'], 409);
         }
 

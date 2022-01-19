@@ -7,6 +7,7 @@ use App\Services\AddressService;
 use App\Services\ContactService;
 use App\Services\PeopleService;
 use App\Services\PhysicService;
+use App\Services\RegisterService;
 use Illuminate\Http\Request;
 
 class ApiControler extends Controller
@@ -22,14 +23,14 @@ class ApiControler extends Controller
         PhysicService $physicService,
         ContactService $contactService,
         AddressService $addressService,
-        RegisterControler $registerControler
+        RegisterService $registerService
     )
     {
         $this->people = $peopleService;
         $this->physic = $physicService;
         $this->contact = $contactService;
         $this->address = $addressService;
-        $this->register = $registerControler;
+        $this->register = $registerService;
     }
 
     public function index()
