@@ -56,7 +56,7 @@ class RegisterService
         $this->physic->savePhysicData($request, $people->id);
         $this->contact->saveContactData($request, $people->id);
         $this->address->saveAddressData($request, $people->id);
-        return $people->id;
+        return response()->json(['message' => 'New record successfully inserted'], 201);
     }
 
     private function verifyCpfExist($request)
