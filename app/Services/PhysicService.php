@@ -23,6 +23,11 @@ class PhysicService
         $this->physicRepository->getById($id);
     }
 
+    public function getByCpf($cpf)
+    {
+        return $this->physicRepository->getByCpf($cpf);
+    }
+
     public function savePhysicData($request, $id)
     {
         return $this->physicRepository->save($request, $id);

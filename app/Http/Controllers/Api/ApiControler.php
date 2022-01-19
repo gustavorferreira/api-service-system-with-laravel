@@ -38,9 +38,9 @@ class ApiControler extends Controller
         return response()->json($this->people->getAll());
     }
 
-    public function show($id)
+    public function show($cpf)
     {
-        return response()->json($this->people->getById($id));
+        return response()->json($this->physic->getByCpf($cpf));
     }
 
     public function store(Request $request)
