@@ -16,6 +16,10 @@ class People extends Model
         'last_name',
         'status'
     ];
+    protected $hidden = [
+        'created_at',
+        'updated_at'
+    ];
 
     public function physic()
     {
