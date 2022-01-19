@@ -19,7 +19,7 @@ class PeopleService implements PeopleInterface
         return People::query()->find($id);
     }
 
-    public function store($request)
+    public function create($request)
     {
         $params = $this->params($request);
         return People::query()->create($params);

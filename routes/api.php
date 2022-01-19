@@ -5,4 +5,4 @@ use App\Http\Controllers\Api\ApiControler;
 
 Route::get('/', [ApiControler::class, 'index']);
 Route::get('/{id}', [ApiControler::class, 'show']);
-Route::post('/register', [ApiControler::class, 'register']);
+Route::post('/register', [ApiControler::class, 'store']);

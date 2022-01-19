@@ -6,5 +6,5 @@ interface PeopleInterface
 {
     public function getAll();
     public function find($id);
-    public function store($request);
+    public function create($request);
 }

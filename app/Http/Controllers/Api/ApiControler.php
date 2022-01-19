@@ -25,8 +25,8 @@ class ApiControler extends Controller
         return response()->json($this->peoples->find($id));
     }
 
-    public function register(Request $request)
+    public function store(Request $request)
     {
-        return response()->json($this->peoples->store($request->all()));
+        return response()->json($this->peoples->create($request->all()));
     }
 }
