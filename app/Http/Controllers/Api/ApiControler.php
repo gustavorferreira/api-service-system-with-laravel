@@ -15,18 +15,21 @@ class ApiControler extends Controller
     protected $physic;
     protected $contact;
     protected $address;
+    protected $register;
 
     public function __construct(
         PeopleService $peopleService,
         PhysicService $physicService,
         ContactService $contactService,
-        AddressService $addressService
+        AddressService $addressService,
+        RegisterControler $registerControler
     )
     {
         $this->people = $peopleService;
         $this->physic = $physicService;
         $this->contact = $contactService;
         $this->address = $addressService;
+        $this->register = $registerControler;
     }
 
     public function index()
@@ -41,10 +44,6 @@ class ApiControler extends Controller
 
     public function store(Request $request)
     {
-        $people = $this->people->savePeopleData($request);
-        $physic = $this->physic->savePhysicData($request, $people->id);
-        $contact = $this->contact->saveContactData($request, $people->id);
-        $address = $this->address->saveAddressData($request, $people->id);
-        return response()->json($people->id);
+        return $this->register->registerData($request);
     }
 }
