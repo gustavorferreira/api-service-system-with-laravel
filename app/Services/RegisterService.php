@@ -57,7 +57,7 @@ class RegisterService
             'genre' => 'required|max:1',
             'natioal_code' => 'required|max:2',
             'ddd_code' => 'required|max:2',
-            'phone_number' => 'required|numeric',
+            'phone_number' => 'required|max:9',
             'email' => 'required|email',
             'city' => 'required',
             'district' => 'required',
