@@ -28,27 +28,8 @@ class RegisterService
 
     public function saveNewRegister($request)
     {
-        $validator = Validator::make($request->all(), [
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'cpf' => 'required',
-            'date_birth' => 'required',
-            'genre' => 'required',
-            'natioal_code' => 'required',
-            'ddd_code' => 'required',
-            'phone_number' => 'required',
-            'email' => 'required',
-            'city' => 'required',
-            'district' => 'required',
-            'uf' => 'required',
-            'county' => 'required',
-            'zip_code' => 'required'
-        ], [
-            'required' => 'The :attribute field is required.'
-        ]);
-
-        if ($validator->fails()) {
-            return response()->json(['message' => $validator->errors()]);
+        if ($this->validateInput($request)->fails()) {
+            return response()->json(['message' => $this->validateInput($request)->errors()]);
         }
 
         if ($this->verifyCpfExist($request)) {
@@ -64,6 +45,28 @@ class RegisterService
         $this->contact->saveContactData($request, $people->id);
         $this->address->saveAddressData($request, $people->id);
         return response()->json(['message' => 'New record successfully inserted'], 201);
+    }
+
+    private function validateInput($request)
+    {
+        return Validator::make($request->all(), [
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'cpf' => 'required|max:11',
+            'date_birth' => 'required',
+            'genre' => 'required|max:1',
+            'natioal_code' => 'required|max:2',
+            'ddd_code' => 'required|max:2',
+            'phone_number' => 'required|numeric',
+            'email' => 'required|email',
+            'city' => 'required',
+            'district' => 'required',
+            'uf' => 'required|max:2',
+            'county' => 'required',
+            'zip_code' => 'required|max:8'
+        ], [
+            'required' => 'The :attribute field is required.'
+        ]);
     }
 
     private function verifyCpfExist($request)
