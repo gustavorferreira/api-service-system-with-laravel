@@ -13,7 +13,7 @@ class ContactRepository
         $this->contact = $contact;
     }
 
-    public function getAllContact()
+    public function getAll()
     {
         return $this->contact
             ->all();

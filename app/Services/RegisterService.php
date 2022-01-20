@@ -40,10 +40,10 @@ class RegisterService
             return response()->json(['message' => 'E-mail already exists'], 409);
         }
 
-        $person = $this->person->savePeopleData($request);
-        $this->physic->savePhysicData($request, $person->id);
-        $this->contact->saveContactData($request, $person->id);
-        $this->address->saveAddressData($request, $person->id);
+        $person = $this->person->save($request);
+        $this->physic->save($request, $person->id);
+        $this->contact->save($request, $person->id);
+        $this->address->save($request, $person->id);
         return response()->json(['message' => 'New record successfully inserted'], 201);
     }
 

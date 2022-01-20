@@ -13,7 +13,7 @@ class PhysicRepository
         $this->physic = $physic;
     }
 
-    public function getAllPhysic()
+    public function getAll()
     {
         return $this->physic
             ->all();

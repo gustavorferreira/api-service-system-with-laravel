@@ -23,7 +23,7 @@ class AddressService
         return $this->addressRepository->getById($id);
     }
 
-    public function saveAddressData($request, $id)
+    public function save($request, $id)
     {
         return $this->addressRepository->save($request, $id);
     }

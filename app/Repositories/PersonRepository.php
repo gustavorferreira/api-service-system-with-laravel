@@ -19,7 +19,7 @@ class PersonRepository
         $this->physic = $physic;
     }
 
-    public function getAllPerson()
+    public function getAll()
     {
         return $this->physic
             ->query()

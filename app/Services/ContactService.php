@@ -15,7 +15,7 @@ class ContactService
 
     public function getAll()
     {
-        return $this->contactRepository->getAllContact();
+        return $this->contactRepository->getAll();
     }
 
     public function getById($id)
@@ -23,7 +23,7 @@ class ContactService
         return $this->contactRepository->getById($id);
     }
 
-    public function saveContactData($request, $id)
+    public function save($request, $id)
     {
         return $this->contactRepository->save($request, $id);
     }

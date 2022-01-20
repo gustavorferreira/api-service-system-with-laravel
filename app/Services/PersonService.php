@@ -15,7 +15,7 @@ class PersonService
 
     public function getAll()
     {
-        return $this->personRepository->getAllPerson();
+        return $this->personRepository->getAll();
     }
 
     public function getById($id)
@@ -23,7 +23,7 @@ class PersonService
         return $this->personRepository->getById($id);
     }
 
-    public function savePeopleData($request)
+    public function save($request)
     {
         return $this->personRepository->save($request);
     }

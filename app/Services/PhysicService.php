@@ -15,7 +15,7 @@ class PhysicService
 
     public function getAll()
     {
-        $this->physicRepository->getAllPhysic();
+        $this->physicRepository->getAll();
     }
 
     public function getById($id)
@@ -28,7 +28,7 @@ class PhysicService
         return $this->physicRepository->getByCpf($cpf);
     }
 
-    public function savePhysicData($request, $id)
+    public function save($request, $id)
     {
         return $this->physicRepository->save($request, $id);
     }
