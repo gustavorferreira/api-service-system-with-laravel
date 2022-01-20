@@ -1,4 +1,12 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<h1 align="center">Sistema de controle financeiro via API com Laravel</h1>
+
+<p align="center">
+  <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-como-executar">Como executar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-saiba-mais">Saiba mais</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-licença">Licença</a>
+</p>
 
 <p align="center">
 <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
@@ -7,60 +15,66 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://user-images.githubusercontent.com/48185499/144947473-84c56550-2d8d-4532-adf5-697a849541c6.png" </a></p>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## ✨ Tecnologias
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- [Laravel](https://laravel.com/)
 
-## Learning Laravel
+## 💻 Projeto
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+O Web Service feito com Framework Laravel que simula uma API de Controle Financeiro, onde o usuário Lança suas Receitas e Despesas.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
+## 🚀 Como executar
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Pré requisitos para executar o projeto:
 
-### Premium Partners
+- Servidor Web
+- PHP >= 7.2.0, com as seguintes extensões:
+    - BCMath PHP
+    - Ctype PHP
+    - JSON PHP
+    - Mbstring PHP
+    - OpenSSL PHP
+    - PDO PHP
+    - PGSQL PHP
+    - Tokenizer PHP
+    - XML PHP
+- Composer
+- Postgres >= 12
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[CMS Max](https://www.cmsmax.com/)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-- **[Romega Software](https://romegasoftware.com)**
+- Instale as dependências com `composer install`
+- Crie o banco de dados com `php artisan migrate`
+- Popule o banco de dados com fakes:
 
-## Contributing
+  - php artisan db:seed --class=RegistrationOriginSeeder &&
+  - php artisan db:seed --class=StatusSeeder &&
+  - php artisan db:seed --class=RevenueTypeSeeder &&
+  - php artisan db:seed --class=ExpenseTypeSeeder &&
+  - php artisan db:seed --class=PeopleSeeder &&
+  - php artisan db:seed --class=PaymentSeeder &&
+  - php artisan db:seed --class=UserSeeder &&
+  - php artisan db:seed --class=RevenueSeeder &&
+  - php artisan db:seed --class=ExpenseSeeder
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- Configure sua varáivel ambiente `cp .env.example .env` e o banco de dados.
+- Inicie o servidor Laravel `php artisan serve`
+- Agora você pode acessar [`http://localhost:8000`](http://localhost:8000) do seu navegador.
+- Veja as rotas de API `php artisan route:list`
 
-## Code of Conduct
+## ⚡️ Saiba mais
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Modelagem de Banco de Dados
 
-## Security Vulnerabilities
+<p align="center"><img src="https://user-images.githubusercontent.com/48185499/144934015-7183fae2-6d34-4bfc-a17e-43ee38acfbfc.png" width="400"></p>
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## 📄 Licença
 
-## License
+Esse projeto está sob a licença MIT.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---
+
+Feito com ♥ by GRF 👋🏻
