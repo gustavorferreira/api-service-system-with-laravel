@@ -23,7 +23,7 @@ class PeopleRepository
     {
         return $this->physic
             ->query()
-            ->select('first_name','last_name','cpf','city', 'district', 'uf', 'county', 'zip_code', 'phone_number')
+            ->select('id','first_name','last_name','cpf','city', 'district', 'uf', 'county', 'zip_code', 'phone_number')
             ->join('peoples', 'peoples.id', '=', 'people_id')
             ->join('contacts', 'contacts.people_id', '=', 'id')
             ->join('addresses', 'addresses.people_id', '=', 'id')
