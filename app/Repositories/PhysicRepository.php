@@ -31,9 +31,9 @@ class PhysicRepository
         return $this->physic
             ->query()
             ->select('id','first_name','last_name','cpf','city', 'district', 'uf', 'county', 'zip_code', 'phone_number')
-            ->join('peoples', 'peoples.id', '=', 'people_id')
-            ->join('contacts', 'contacts.people_id', '=', 'id')
-            ->join('addresses', 'addresses.people_id', '=', 'id')
+            ->join('persons', 'persons.id', '=', 'person_id')
+            ->join('contacts', 'contacts.person_id', '=', 'id')
+            ->join('addresses', 'addresses.person_id', '=', 'id')
             ->where('cpf', $cpf)
             ->first();
     }
@@ -42,7 +42,7 @@ class PhysicRepository
     {
         $physic = new $this->physic;
 
-        $physic->people_id = $id;
+        $physic->person_id = $id;
         $physic->cpf = $request->get('cpf');
         $physic->date_birth = $request->get('date_birth');
         $physic->genre = $request->get('genre');

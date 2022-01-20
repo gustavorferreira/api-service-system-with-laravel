@@ -30,7 +30,7 @@ class AddressRepository
     {
         $address = new $this->address;
 
-        $address->people_id = $id;
+        $address->person_id = $id;
         $address->city = $request->get('city');
         $address->district = $request->get('district');
         $address->complement = $request->get('complement');

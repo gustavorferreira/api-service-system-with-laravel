@@ -10,9 +10,9 @@ class Contact extends Model
     use HasFactory;
 
     protected $table = 'contacts';
-    protected $primaryKey = 'people_id';
+    protected $primaryKey = 'person_id';
     protected $fillable = [
-        'people_id',
+        'person_id',
         'natioal_code',
         'ddd_code',
         'phone_number',
@@ -20,8 +20,8 @@ class Contact extends Model
         'observation'
     ];
 
-    public function people()
+    public function person()
     {
-        return $this->hasOne(People::class);
+        return $this->hasOne(Person::class);
     }
 }

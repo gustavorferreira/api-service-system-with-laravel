@@ -8,19 +8,19 @@ use Illuminate\Support\Facades\Validator;
 
 class RegisterService
 {
-    protected $people;
+    protected $person;
     protected $physic;
     protected $contact;
     protected $address;
 
     public function __construct(
-        PeopleService $peopleService,
-        PhysicService $physicService,
+        PersonService  $personService,
+        PhysicService  $physicService,
         ContactService $contactService,
         AddressService $addressService
     )
     {
-        $this->people = $peopleService;
+        $this->person = $personService;
         $this->physic = $physicService;
         $this->contact = $contactService;
         $this->address = $addressService;
@@ -40,10 +40,10 @@ class RegisterService
             return response()->json(['message' => 'E-mail already exists'], 409);
         }
 
-        $people = $this->people->savePeopleData($request);
-        $this->physic->savePhysicData($request, $people->id);
-        $this->contact->saveContactData($request, $people->id);
-        $this->address->saveAddressData($request, $people->id);
+        $person = $this->person->savePeopleData($request);
+        $this->physic->savePhysicData($request, $person->id);
+        $this->contact->saveContactData($request, $person->id);
+        $this->address->saveAddressData($request, $person->id);
         return response()->json(['message' => 'New record successfully inserted'], 201);
     }
 

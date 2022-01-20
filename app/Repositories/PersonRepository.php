@@ -2,37 +2,37 @@
 
 namespace App\Repositories;
 
-use App\Models\People;
+use App\Models\Person;
 use App\Models\Physic;
 
-class PeopleRepository
+class PersonRepository
 {
-    protected $people;
+    protected $person;
     protected $physic;
 
     public function __construct(
-        People $people,
+        Person $person,
         Physic $physic
     )
     {
-        $this->people = $people;
+        $this->person = $person;
         $this->physic = $physic;
     }
 
-    public function getAllPeople()
+    public function getAllPerson()
     {
         return $this->physic
             ->query()
             ->select('id','first_name','last_name','cpf','city', 'district', 'uf', 'county', 'zip_code', 'phone_number')
-            ->join('peoples', 'peoples.id', '=', 'people_id')
-            ->join('contacts', 'contacts.people_id', '=', 'id')
-            ->join('addresses', 'addresses.people_id', '=', 'id')
+            ->join('persons', 'persons.id', '=', 'person_id')
+            ->join('contacts', 'contacts.person_id', '=', 'id')
+            ->join('addresses', 'addresses.person_id', '=', 'id')
             ->get();
     }
 
     public function getById($id)
     {
-        return $this->people
+        return $this->person
             ->query()
             ->find($id);
     }
@@ -40,7 +40,7 @@ class PeopleRepository
     public function save($request)
     {
         $params = $this->params($request);
-        return $this->people->query()
+        return $this->person->query()
             ->create($params);
     }
 

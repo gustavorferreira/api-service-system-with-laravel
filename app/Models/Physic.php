@@ -10,16 +10,16 @@ class Physic extends Model
     use HasFactory;
 
     protected $table = 'physics';
-    protected $primaryKey = 'people_id';
+    protected $primaryKey = 'person_id';
     protected $fillable = [
-        'people_id',
+        'person_id',
         'cpf',
         'date_birth',
         'genre'
     ];
 
-    public function people()
+    public function person()
     {
-        return $this->hasOne(People::class);
+        return $this->hasOne(Person::class);
     }
 }

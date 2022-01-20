@@ -30,7 +30,7 @@ class ContactRepository
     {
         $contact = new $this->contact;
 
-        $contact->people_id = $id;
+        $contact->person_id = $id;
         $contact->natioal_code = $request->get('natioal_code');
         $contact->ddd_code = $request->get('ddd_code');
         $contact->phone_number = $request->get('phone_number');
