@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\Contact;
 use App\Models\Physic;
+use Illuminate\Support\Facades\Validator;
 
 class RegisterService
 {
@@ -27,7 +28,7 @@ class RegisterService
 
     public function saveNewRegister($request)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'first_name' => 'required',
             'last_name' => 'required',
             'cpf' => 'required',
@@ -42,7 +43,13 @@ class RegisterService
             'uf' => 'required',
             'county' => 'required',
             'zip_code' => 'required'
+        ], [
+            'required' => 'The :attribute field is required.'
         ]);
+
+        if ($validator->fails()) {
+            return response()->json(['message' => $validator->errors()]);
+        }
 
         if ($this->verifyCpfExist($request)) {
             return response()->json(['message' => 'CPF already exists'], 409);
