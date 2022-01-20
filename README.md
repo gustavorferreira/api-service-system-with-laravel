@@ -15,7 +15,8 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://user-images.githubusercontent.com/48185499/144947473-84c56550-2d8d-4532-adf5-697a849541c6.png" </a></p>
+<p align="center">
+    <a href="https://laravel.com" target="_blank"><img src="https://user-images.githubusercontent.com/48185499/150372342-47c64427-71a3-4c97-8681-03ba9dd1206d.gif" </a></p>
 
 ## ✨ Tecnologias
 
