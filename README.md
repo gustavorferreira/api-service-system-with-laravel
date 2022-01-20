@@ -1,4 +1,4 @@
-<h1 align="center">Sistema de controle financeiro via API com Laravel</h1>
+<h1 align="center">Sistema de cadastro via API com Laravel</h1>
 
 <p align="center">
   <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
