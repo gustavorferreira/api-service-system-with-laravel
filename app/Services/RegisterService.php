@@ -44,11 +44,11 @@ class RegisterService
             'zip_code' => 'required'
         ]);
 
-        if ($this->verifyCpfExist($request) != null) {
+        if ($this->verifyCpfExist($request)) {
             return response()->json(['message' => 'CPF already exists'], 409);
         }
 
-        if ($this->verifyEmailExist($request) != '') {
+        if ($this->verifyEmailExist($request)) {
             return response()->json(['message' => 'E-mail already exists'], 409);
         }
 
