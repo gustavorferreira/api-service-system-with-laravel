@@ -48,17 +48,6 @@ Pré requisitos para executar o projeto:
 
 - Instale as dependências com `composer install`
 - Crie o banco de dados com `php artisan migrate`
-- Popule o banco de dados com fakes:
-
-  - php artisan db:seed --class=RegistrationOriginSeeder &&
-  - php artisan db:seed --class=StatusSeeder &&
-  - php artisan db:seed --class=RevenueTypeSeeder &&
-  - php artisan db:seed --class=ExpenseTypeSeeder &&
-  - php artisan db:seed --class=PeopleSeeder &&
-  - php artisan db:seed --class=PaymentSeeder &&
-  - php artisan db:seed --class=UserSeeder &&
-  - php artisan db:seed --class=RevenueSeeder &&
-  - php artisan db:seed --class=ExpenseSeeder
 
 - Configure sua varáivel ambiente `cp .env.example .env` e o banco de dados.
 - Inicie o servidor Laravel `php artisan serve`
