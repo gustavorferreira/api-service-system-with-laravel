@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Api;
 use App\Ctos\PhysicCto;
 use App\Http\Controllers\Controller;
 use App\Services\PersonService;
-use App\Services\PhysicService;
 use Illuminate\Http\Request;
 use App\Ctos\PersonCto;
 

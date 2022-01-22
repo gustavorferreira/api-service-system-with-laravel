@@ -2,14 +2,7 @@
 
 namespace App\Ctos;
 
-use App\Models\Address;
-use App\Models\Contact;
-use App\Models\Person;
 use App\Models\Physic;
-use App\Services\AddressService;
-use App\Services\ContactService;
-use App\Services\PersonService;
-use App\Services\PhysicService;
 
 class PhysicCto
 {
