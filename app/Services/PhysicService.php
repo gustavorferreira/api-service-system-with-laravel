@@ -13,13 +13,17 @@ class PhysicService
         $this->physicRepository = $physicRepository;
     }
 
-    public function verifyCpfExist($request)
+    private function verifyCpfExist($request)
     {
         return $this->physicRepository->verifyCpfExist($request);
     }
 
     public function save($request, $id)
     {
+        if ($this->verifyCpfExist($request)) {
+            return response()->json(['message' => 'CPF already exists'], 409);
+        }
+
         return $this->physicRepository->save($request, $id);
     }
 }

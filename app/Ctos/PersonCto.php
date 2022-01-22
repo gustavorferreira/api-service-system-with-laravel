@@ -6,6 +6,8 @@ use App\Services\AddressService;
 use App\Services\ContactService;
 use App\Services\PersonService;
 use App\Services\PhysicService;
+use Illuminate\Support\Facades\DB;
+use SebastianBergmann\Diff\Exception;
 
 class PersonCto
 {
@@ -29,18 +31,17 @@ class PersonCto
 
     public function save($request)
     {
-        if ($this->physic->verifyCpfExist($request)) {
-            return response()->json(['message' => 'CPF already exists'], 409);
+        DB::beginTransaction();
+        try {
+            $person = $this->person->save($request);
+            $this->physic->save($request, $person->id);
+            $this->contact->save($request, $person->id);
+            $this->address->save($request, $person->id);
+            DB::commit();
+            return response()->json(['message' => 'New record successfully inserted'], 201);
+        } catch (Exception $exception) {
+            DB::rollBack();
+            return $exception->getMessage();
         }
-
-        if ($this->contact->verifyEmailExist($request)) {
-            return response()->json(['message' => 'E-mail already exists'], 409);
-        }
-
-        $person = $this->person->save($request);
-        $this->physic->save($request, $person->id);
-        $this->contact->save($request, $person->id);
-        $this->address->save($request, $person->id);
-        return response()->json(['message' => 'New record successfully inserted'], 201);
     }
 }

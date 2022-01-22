@@ -13,13 +13,17 @@ class ContactService
         $this->contactRepository = $contactRepository;
     }
 
-    public function verifyEmailExist($request)
+    private function verifyEmailExist($request)
     {
         return $this->contactRepository->verifyEmailExist($request);
     }
 
     public function save($request, $id)
     {
+        if ($this->verifyEmailExist($request)) {
+            return response()->json(['message' => 'E-mail already exists'], 409);
+        }
+
         return $this->contactRepository->save($request, $id);
     }
 }
