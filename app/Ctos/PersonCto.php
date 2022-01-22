@@ -6,8 +6,6 @@ use App\Services\AddressService;
 use App\Services\ContactService;
 use App\Services\PersonService;
 use App\Services\PhysicService;
-use Illuminate\Support\Facades\DB;
-use PHPUnit\Framework\ExpectationFailedException;
 
 class PersonCto
 {
@@ -39,17 +37,10 @@ class PersonCto
             return response()->json(['message' => 'E-mail already exists'], 409);
         }
 
-        DB::beginTransaction();
-        try {
-            $person = $this->person->save($request);
-            $this->physic->save($request, $person->id);
-            $this->contact->save($request, $person->id);
-            $this->address->save($request, $person->id);
-            DB::commit();
-            return response()->json(['message' => 'New record successfully inserted'], 201);
-        } catch (ExpectationFailedException $e) {
-            DB::rollBack();
-            return '$e->getMessage()';
-        }
+        $person = $this->person->save($request);
+        $this->physic->save($request, $person->id);
+        $this->contact->save($request, $person->id);
+        $this->address->save($request, $person->id);
+        return response()->json(['message' => 'New record successfully inserted'], 201);
     }
 }
