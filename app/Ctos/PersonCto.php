@@ -40,7 +40,7 @@ class PersonCto
             return response()->json(['message' => 'New record successfully inserted'], 201);
         } catch (\Exception $exception) {
             DB::rollBack();
-            return $exception->getMessage();
+            return response()->json(['message' => 'Error inserting new record'], 500);
         }
     }
 }
