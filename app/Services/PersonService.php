@@ -18,11 +18,6 @@ class PersonService
         return $this->personRepository->getAll();
     }
 
-    public function getById($id)
-    {
-        return $this->personRepository->getById($id);
-    }
-
     public function save($request)
     {
         return $this->personRepository->save($request);

@@ -13,16 +13,6 @@ class ContactService
         $this->contactRepository = $contactRepository;
     }
 
-    public function getAll()
-    {
-        return $this->contactRepository->getAll();
-    }
-
-    public function getById($id)
-    {
-        return $this->contactRepository->getById($id);
-    }
-
     public function verifyEmailExist($request)
     {
         return $this->contactRepository->verifyEmailExist($request);
