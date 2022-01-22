@@ -2,32 +2,28 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Ctos\PersonCto;
 use App\Ctos\PhysicCto;
 use App\Http\Controllers\Controller;
-use App\Services\PersonService;
 use Illuminate\Http\Request;
-use App\Ctos\PersonCto;
 
 class ApiControler extends Controller
 {
-    protected $person;
     protected $personCto;
-    protected $physic;
+    protected $physicCto;
 
     public function __construct(
-        PersonService $personService,
         PersonCto $personCto,
         PhysicCto $physicCto
     )
     {
-        $this->person = $personService;
         $this->personCto = $personCto;
-        $this->physic = $physicCto;
+        $this->physicCto = $physicCto;
     }
 
     public function show($cpf)
     {
-        return $this->physic->getByCpf($cpf);
+        return $this->physicCto->getByCpf($cpf);
     }
 
     public function store(Request $request)
