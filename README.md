@@ -60,7 +60,7 @@ Pré requisitos para executar o projeto:
 Modelagem de Banco de Dados
 
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/48185499/150364584-f1c090a2-c8be-45aa-b4b5-266938a24b41.png" width="400">
+    <img src="https://user-images.githubusercontent.com/48185499/150406251-bb07381a-0985-4d1e-85c2-de25e51bffe7.png" width="400">
 </p>
 
 ## 📄 Licença
