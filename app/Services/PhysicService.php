@@ -21,7 +21,7 @@ class PhysicService
     public function save($request, $id)
     {
         if ($this->verifyCpfExist($request)) {
-            return response()->json(['message' => 'CPF already exists'], 409);
+            throw new \Exception('CPF already exists', '409');
         }
 
         return $this->physicRepository->save($request, $id);

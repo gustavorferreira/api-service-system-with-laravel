@@ -21,7 +21,7 @@ class ContactService
     public function save($request, $id)
     {
         if ($this->verifyEmailExist($request)) {
-            return response()->json(['message' => 'E-mail already exists'], 409);
+            throw new \Exception('E-mail already exists', '409');
         }
 
         return $this->contactRepository->save($request, $id);
