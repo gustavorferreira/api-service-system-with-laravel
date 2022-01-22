@@ -28,6 +28,11 @@ class PhysicService
         return $this->physicRepository->getByCpf($cpf);
     }
 
+    public function verifyCpfExist($request)
+    {
+        return $this->physicRepository->verifyCpfExist($request);
+    }
+
     public function save($request, $id)
     {
         return $this->physicRepository->save($request, $id);

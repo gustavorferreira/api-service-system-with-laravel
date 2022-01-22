@@ -38,6 +38,13 @@ class PhysicRepository
             ->first();
     }
 
+    public function verifyCpfExist($request)
+    {
+        return $this->physic->query()
+            ->where('cpf', $request->get('cpf'))
+            ->first('cpf');
+    }
+
     public function save($request, $id)
     {
         return (new $this->physic([
