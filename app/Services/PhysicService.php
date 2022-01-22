@@ -13,6 +13,11 @@ class PhysicService
         $this->physicRepository = $physicRepository;
     }
 
+    public function getByCpf($cpf)
+    {
+        return $this->physicRepository->getByCpf($cpf);
+    }
+
     private function verifyCpfExist($request)
     {
         return $this->physicRepository->exist($request);
