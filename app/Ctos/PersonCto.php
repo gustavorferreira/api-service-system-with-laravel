@@ -7,7 +7,6 @@ use App\Services\ContactService;
 use App\Services\PersonService;
 use App\Services\PhysicService;
 use Illuminate\Support\Facades\DB;
-use SebastianBergmann\Diff\Exception;
 
 class PersonCto
 {
