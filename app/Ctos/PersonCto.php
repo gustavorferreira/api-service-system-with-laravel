@@ -35,8 +35,8 @@ class PersonCto
             return response()->json(['message' => $this->validateInput($request)->errors()]);
         }
 
-        DB::beginTransaction();
         try {
+            DB::beginTransaction();
             $person = $this->person->save($request);
             $this->physic->save($request, $person->id);
             $this->contact->save($request, $person->id);
