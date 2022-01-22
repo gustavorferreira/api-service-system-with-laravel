@@ -53,7 +53,7 @@ Pré requisitos para executar o projeto:
 - Configure sua varáivel ambiente `cp .env.example .env` e o banco de dados.
 - Inicie o servidor Laravel `php artisan serve`
 - Agora você pode acessar [`http://localhost:8000`](http://localhost:8000/api) do seu navegador.
-- Veja as rotas de API `php artisan route:list`
+- Veja as rotas de API `php artisan route:list` (http://127.0.0.1:8000/api/register | http://127.0.0.1:8000/api/43054241696)
 - Campos obrigatórios:
     
             'first_name' => 'required',
