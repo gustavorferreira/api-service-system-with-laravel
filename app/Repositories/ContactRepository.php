@@ -28,16 +28,13 @@ class ContactRepository
 
     public function save($request, $id)
     {
-        $contact = new $this->contact;
-
-        $contact->person_id = $id;
-        $contact->natioal_code = $request->get('natioal_code');
-        $contact->ddd_code = $request->get('ddd_code');
-        $contact->phone_number = $request->get('phone_number');
-        $contact->email = $request->get('email');
-        $contact->observation = $request->get('observation');
-
-        $contact->save();
-        return $contact;
+        return (new $this->contact([
+            'person_id' => $id,
+            'natioal_code' => $request->get('natioal_code'),
+            'ddd_code' => $request->get('ddd_code'),
+            'phone_number' => $request->get('phone_number'),
+            'email' => $request->get('email'),
+            'observation' => $request->get('observation')
+        ]))->save();
     }
 }

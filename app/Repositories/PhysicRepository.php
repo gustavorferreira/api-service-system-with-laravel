@@ -40,14 +40,11 @@ class PhysicRepository
 
     public function save($request, $id)
     {
-        $physic = new $this->physic;
-
-        $physic->person_id = $id;
-        $physic->cpf = $request->get('cpf');
-        $physic->date_birth = $request->get('date_birth');
-        $physic->genre = $request->get('genre');
-
-        $physic->save();
-        return $physic;
+        return (new $this->physic([
+            'person_id' => $id,
+            'cpf' => $request->get('cpf'),
+            'date_birth' => $request->get('date_birth'),
+            'genre' => $request->get('genre')
+        ]))->save();
     }
 }

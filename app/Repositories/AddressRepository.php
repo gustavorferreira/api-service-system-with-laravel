@@ -28,18 +28,15 @@ class AddressRepository
 
     public function save($request, $id)
     {
-        $address = new $this->address;
-
-        $address->person_id = $id;
-        $address->city = $request->get('city');
-        $address->district = $request->get('district');
-        $address->complement = $request->get('complement');
-        $address->public_place = $request->get('public_place');
-        $address->uf = $request->get('uf');
-        $address->county = $request->get('county');
-        $address->zip_code = $request->get('zip_code');
-
-        $address->save();
-        return $address;
+        return (new $this->address([
+            'person_id' => $id,
+            'city' => $request->get('city'),
+            'district' => $request->get('district'),
+            'complement' => $request->get('complement'),
+            'public_place' => $request->get('public_place'),
+            'uf' => $request->get('uf'),
+            'county' => $request->get('county'),
+            'zip_code' => $request->get('zip_code')
+        ]))->save();
     }
 }
