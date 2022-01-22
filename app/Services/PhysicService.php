@@ -20,7 +20,7 @@ class PhysicService
 
     public function getById($id)
     {
-        $this->physicRepository->getById($id);
+        return $this->physicRepository->getById($id);
     }
 
     public function getByCpf($cpf)
