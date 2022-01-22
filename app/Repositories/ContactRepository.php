@@ -26,6 +26,13 @@ class ContactRepository
             ->find($id);
     }
 
+    public function verifyEmailExist($request)
+    {
+        return $this->contact->query()
+            ->where('email', $request->get('email'))
+            ->first('email');
+    }
+
     public function save($request, $id)
     {
         return (new $this->contact([

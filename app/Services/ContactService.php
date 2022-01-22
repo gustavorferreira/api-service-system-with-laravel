@@ -23,6 +23,11 @@ class ContactService
         return $this->contactRepository->getById($id);
     }
 
+    public function verifyEmailExist($request)
+    {
+        return $this->contactRepository->verifyEmailExist($request);
+    }
+
     public function save($request, $id)
     {
         return $this->contactRepository->save($request, $id);
