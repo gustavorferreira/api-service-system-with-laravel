@@ -54,7 +54,23 @@ Pré requisitos para executar o projeto:
 - Inicie o servidor Laravel `php artisan serve`
 - Agora você pode acessar [`http://localhost:8000`](http://localhost:8000/api) do seu navegador.
 - Veja as rotas de API `php artisan route:list`
-
+- Campos obrigatórios:
+    
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'cpf' => 'required|max:11',
+            'date_birth' => 'required',
+            'genre' => 'required|max:1',
+            'natioal_code' => 'required|max:2',
+            'ddd_code' => 'required|max:2',
+            'phone_number' => 'required|max:9',
+            'email' => 'required|email',
+            'city' => 'required',
+            'district' => 'required',
+            'uf' => 'required|max:2',
+            'county' => 'required',
+            'zip_code' => 'required|max:8'
+    
 ## ⚡️ Saiba mais
 
 Modelagem de Banco de Dados
