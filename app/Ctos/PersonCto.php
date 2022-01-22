@@ -39,7 +39,7 @@ class PersonCto
             $this->address->save($request, $person->id);
             DB::commit();
             return response()->json(['message' => 'New record successfully inserted'], 201);
-        } catch (Exception $exception) {
+        } catch (\Exception $exception) {
             DB::rollBack();
             return $exception->getMessage();
         }
