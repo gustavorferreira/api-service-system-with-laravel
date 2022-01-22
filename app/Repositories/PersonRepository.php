@@ -3,31 +3,20 @@
 namespace App\Repositories;
 
 use App\Models\Person;
-use App\Models\Physic;
 
 class PersonRepository
 {
     protected $person;
-    protected $physic;
 
-    public function __construct(
-        Person $person,
-        Physic $physic
-    )
+    public function __construct(Person $person)
     {
         $this->person = $person;
-        $this->physic = $physic;
     }
 
     public function getAll()
     {
-        return $this->physic
-            ->query()
-            ->select('id','first_name','last_name','cpf','city', 'district', 'uf', 'county', 'zip_code', 'phone_number')
-            ->join('persons', 'persons.id', '=', 'person_id')
-            ->join('contacts', 'contacts.person_id', '=', 'id')
-            ->join('addresses', 'addresses.person_id', '=', 'id')
-            ->get();
+        return $this->person
+            ->all();
     }
 
     public function getById($id)
