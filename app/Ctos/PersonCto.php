@@ -37,6 +37,15 @@ class PersonCto
 
         try {
             DB::beginTransaction();
+
+            if ($this->physic->verifyCpfExist($request)) {
+                throw new \Exception('CPF already exists', '409');
+            }
+
+            if ($this->contact->verifyEmailExist($request)) {
+                throw new \Exception('E-mail already exists', '409');
+            }
+
             $person = $this->person->save($request);
             $this->physic->save($request, $person->id);
             $this->contact->save($request, $person->id);
