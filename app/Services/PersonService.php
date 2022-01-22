@@ -13,11 +13,6 @@ class PersonService
         $this->personRepository = $personRepository;
     }
 
-    public function getAll()
-    {
-        return $this->personRepository->getAll();
-    }
-
     public function save($request)
     {
         return $this->personRepository->save($request);
