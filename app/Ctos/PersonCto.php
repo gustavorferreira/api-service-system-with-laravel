@@ -2,6 +2,7 @@
 
 namespace App\Ctos;
 
+use Exception;
 use App\Services\AddressService;
 use App\Services\ContactService;
 use App\Services\PersonService;
@@ -39,11 +40,11 @@ class PersonCto
             DB::beginTransaction();
 
             if ($this->physic->verifyCpfExist($request)) {
-                throw new \Exception('CPF already exists', '409');
+                throw new Exception('CPF already exists', '409');
             }
 
             if ($this->contact->verifyEmailExist($request)) {
-                throw new \Exception('E-mail already exists', '409');
+                throw new Exception('E-mail already exists', '409');
             }
 
             $person = $this->person->save($request);
@@ -52,7 +53,7 @@ class PersonCto
             $this->address->save($request, $person->id);
             DB::commit();
             return response()->json(['message' => 'New record successfully inserted'], 201);
-        } catch (\Exception $exception) {
+        } catch (Exception $exception) {
             DB::rollBack();
             return response()->json(['message' => 'Error inserting new record' . ': ' . $exception->getMessage()], 500);
         }
