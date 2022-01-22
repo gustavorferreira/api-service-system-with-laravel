@@ -22,14 +22,4 @@ class Physic extends Model
     {
         return $this->hasOne(Person::class);
     }
-
-    public function address()
-    {
-        return $this->hasMany(Address::class);
-    }
-
-    public function contact()
-    {
-        return $this->hasMany(Contact::class);
-    }
 }

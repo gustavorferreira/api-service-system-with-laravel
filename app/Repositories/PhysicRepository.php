@@ -28,15 +28,7 @@ class PhysicRepository
 
     public function getByCpf($cpf)
     {
-        /*
-         return Destination::addSelect(['last_flight' => Flight::select('name')
-            ->whereColumn('destination_id', 'destinations.id')
-            ->orderByDesc('arrived_at')
-            ->limit(1)
-        ])->get();
-        */
         return $this->physic
-            ->query()
             ->where('cpf', $cpf)
             ->first();
     }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Ctos\PhysicCto;
 use App\Http\Controllers\Controller;
 use App\Services\PersonService;
 use App\Services\PhysicService;
@@ -17,12 +18,12 @@ class ApiControler extends Controller
     public function __construct(
         PersonService $personService,
         PersonCto $personCto,
-        PhysicService $physicService
+        PhysicCto $physicCto
     )
     {
         $this->person = $personService;
         $this->personCto = $personCto;
-        $this->physic = $physicService;
+        $this->physic = $physicCto;
     }
 
     public function show($cpf)
