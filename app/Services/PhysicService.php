@@ -15,7 +15,7 @@ class PhysicService
 
     private function verifyCpfExist($request)
     {
-        return $this->physicRepository->verifyCpfExist($request);
+        return $this->physicRepository->exist($request);
     }
 
     public function save($request, $id)

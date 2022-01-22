@@ -38,7 +38,7 @@ class PhysicRepository
             ->first();
     }
 
-    public function verifyCpfExist($request)
+    public function exist($request)
     {
         return $this->physic->query()
             ->where('cpf', $request->get('cpf'))

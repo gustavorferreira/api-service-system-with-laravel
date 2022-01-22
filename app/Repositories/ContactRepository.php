@@ -26,7 +26,7 @@ class ContactRepository
             ->find($id);
     }
 
-    public function verifyEmailExist($request)
+    public function exist($request)
     {
         return $this->contact->query()
             ->where('email', $request->get('email'))

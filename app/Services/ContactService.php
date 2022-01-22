@@ -15,7 +15,7 @@ class ContactService
 
     private function verifyEmailExist($request)
     {
-        return $this->contactRepository->verifyEmailExist($request);
+        return $this->contactRepository->exist($request);
     }
 
     public function save($request, $id)
